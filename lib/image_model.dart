@@ -34,12 +34,9 @@ class ImageModel extends ChangeNotifier {
     // while in iOS is the photos permission
     if (Platform.isAndroid) {
       result = await Permission.storage.request();
-      print('entrou');
     } else {
       result = await Permission.photos.request();
     }
-
-    print(result);
 
     if (result.isGranted) {
       imageSection = ImageSection.browseFiles;
